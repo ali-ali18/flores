@@ -1,0 +1,176 @@
+// Variáveis de cores
+$stem-color: #228B22; // Verde floresta
+$leaf-color: #32CD32; // Verde limão
+$petal-color: #FF69B4; // Rosa choque
+$center-color: #FFD700; // Ouro
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+}
+
+.flower-container {
+  position: relative;
+  width: 10px;
+}
+
+// Caule
+.stem {
+  position: relative;
+  width: 4px;
+  height: 0;
+  background-color: $stem-color;
+  margin: 0 auto;
+  animation: growStem 3s forwards;
+  transform-origin: bottom;
+}
+
+// Folhas
+.leaf {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: $leaf-color;
+  opacity: 0;
+  border-radius: 50%;
+  animation: growLeaf 2s forwards 2s;
+}
+
+.leaf-left {
+  left: -20px;
+  top: 60%;
+  transform: rotate(-45deg);
+}
+
+.leaf-right {
+  right: -20px;
+  top: 60%;
+  transform: rotate(45deg);
+}
+
+// Flor
+.flower {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  animation: showFlower 2s forwards 3s;
+}
+
+// Pétalas
+.petal {
+  position: absolute;
+  width: 0;
+  height: 0;
+  background-color: $petal-color;
+  border-radius: 50%;
+  opacity: 0;
+  animation: growPetal 1s forwards;
+}
+
+.petal1 {
+  top: -30px;
+  left: -15px;
+  animation-delay: 3.5s;
+}
+
+.petal2 {
+  top: -30px;
+  left: 5px;
+  animation-delay: 3.7s;
+}
+
+.petal3 {
+  top: -50px;
+  left: -5px;
+  animation-delay: 3.9s;
+}
+
+.petal4 {
+  top: -30px;
+  left: -25px;
+  animation-delay: 4.1s;
+}
+
+.petal5 {
+  top: -30px;
+  left: 15px;
+  animation-delay: 4.3s;
+}
+
+// Centro da flor
+.center {
+  position: absolute;
+  top: -40px;
+  left: -5px;
+  width: 0;
+  height: 0;
+  background-color: $center-color;
+  border-radius: 50%;
+  opacity: 0;
+  animation: showCenter 1s forwards 4.5s;
+}
+
+// Animações
+@keyframes growStem {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 200px;
+  }
+}
+
+@keyframes growLeaf {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 40px;
+    height: 20px;
+  }
+}
+
+@keyframes showFlower {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes growPetal {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@keyframes showCenter {
+  0% {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+}
